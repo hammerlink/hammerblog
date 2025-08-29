@@ -1,5 +1,5 @@
 ---
-title: My LKMP experience
+title: My Linux Kernel Mentorship story
 date: '2025-08-29'
 tags: ['linux', 'mentorship', 'kernel', 'development', 'opensource']
 draft: false
@@ -8,50 +8,83 @@ layout: PostSimple
 authors: ['hammerlink']
 ---
 
+### Starting my Kernel Mentorship journey
 
-### Introduction
+This year I began a transition into embedded programming, driven by my interest in meaningful open-source projects and a strong desire to contribute to them. 
+When I came across the Linux Kernel Mentorship Program, it felt like the perfect match for my situation, and I was thrilled to be accepted.
 
-As a Linux enthusiast with a passion for open source and embedded systems, I joined the mentorship program to take my first real step into kernel contributions. 
 I quickly learned it’s not about being taught step by step. 
-You grow by exploring, experimenting, and putting in the effort yourself. 
+You grow by exploring, reading, experimenting, and putting in the effort yourself. 
 But you’re never alone: mentors, ex-mentees, and fellow participants are always there to share knowledge and answer questions.
 That mix of independence and community support makes the mentorship a truly rewarding experience.
 
-### First Contributions
+### Submitting My First Patches
 
-My first patches weren’t groundbreaking features. 
-They were small fixes. But for me, they served as a test: could I follow the patch flow, 
-use the tools and practices I learned in the "LFD103: A Beginner's Guide to Linux Kernel Development", and submit something correctly.
+My first contributions weren’t groundbreaking features.
+They were small fixes: a spelling correction and a refactor replacing scnprintf with sysfs_emit.
+Working on them helped me understand the kernel patch workflow in practice, applying the lessons from LFD103: A Beginner’s Guide to Linux Kernel Development.
 
-What impressed me most was how accessible the kernel maintainers were. 
-My spelling patch was accepted by Jonathan Corbet, and my sysfs_emit patch was picked up by Greg Kroah-Hartman. 
-These are people I had only known from books and youtube videos, and suddenly they were reviewing my work. 
-It felt like two gatekeepers had let me into the Linux development world. 
-Passing that first test gave me the confidence to move forward and tackle bigger challenges.
+Getting the patch flow right is not trivial. 
+Reading the documentation is essential, but so is subscribing to mailing lists and observing how patch discussions unfold. 
+Sending out that first patch can be intimidating, I probably triple-checked mine before hitting send. 
+After all, you’re putting your work out into the open, not knowing how many people might review it.
+
+Thanks to the beginner’s guide, I avoided most common pitfalls. After applying some fixes, both patches were accepted, a very satisfying milestone.
+It was kind of cool that they were picked up directly by Jonathan Corbet and Greg Kroah-Hartman, two of the co-authors of Linux Device Drivers, Third Edition, which I happened to be reading at the time.
+Having those first patches accepted gave me the confidence to move beyond small fixes and start exploring deeper areas of the kernel.
 
 ### Exploring RISC-V Hardware
 
-With my first patches accepted, I wanted to do something more challenging and aligned with my current interest in embedded systems. 
-I picked up an Orange Pi RV2 and started exploring the Ky X1 SoC, 
-thinking I was dealing with entirely new hardware that would have to be upstreamed from scratch—a task that felt far beyond my abilities at the time.
+I began working with a RISC-V development board around the time it was first released. 
+I had already come across it before and thought it would be a good candidate for experimenting with the kernel. 
+From reading other mentees’ blogs, I knew how valuable it is to have real hardware on hand when exploring and contributing.
 
-Luckily, after digging through different source trees, I discovered that the Ky X1 was actually derived from the SpacemiT K1, which was already being actively upstreamed. This was an important realization for me. Instead of starting from zero, I could build on existing work. The device tree for my hardware was accepted, and that gave me the opportunity to start testing and verifying functionality.
+When I started working with the board, I discovered that its SoC wasn’t yet supported in the mainline kernel. 
+It did run with a downstream Linux version, but that suggested it would eventually need to be upstreamed.
+This task felt a bit too large to take on as a beginner.
+After digging through different source trees, I learned that this SoC is actually derived from another one that is already being actively upstreamed.
+That was an important realization: instead of starting from scratch, I could build on existing work.
 
-From there, I gradually learned how different subsystems fit together, while also improving my own tooling and workflow for embedded SoC development. I worked with U-Boot, TFTP, `stty`, `ftrace`, `strace`, and more—each tool helping me dig deeper into the hardware and the kernel. Through this testing and experimentation, I uncovered issues and missing pieces in the code, which led me to writing patches of my own.
+Every board still needs its own device tree so the kernel knows what hardware it can use.
+Since one wasn’t available, I wrote one and sent out a patch, explaining that the SoC is likely identical or very similar to its parent design.
+The patch was accepted, which gave me the opportunity to start testing and verifying functionality.
 
-This hands-on work not only gave me confidence in understanding the upstreaming process, but also showed me how rewarding it is to contribute fixes back to the community. Looking ahead, one of my goals is to upstream a driver for the SpacemiT platform.
+From there, I gradually learned how different kernel subsystems fit together, while also improving my tooling and workflow for embedded SoC development.
+Tools like bootloaders, network boot setups, serial consoles, and tracing utilities became part of my everyday work.
+Through this experimentation, I uncovered issues and missing pieces, which eventually led me to write patches of my own.
 
-### Using AI Wisely
+Upstreaming a new SoC has been especially engaging because it intersects with so many different parts of the kernel.
+As a beginner, gradually learning about multiple subsystems this way has been both valuable and interesting.
+I plan to stay involved with this effort and contribute more actively as development continues.
 
-AI became part of my workflow during the mentorship, mainly to help me understand new concepts and to catch obvious mistakes in my code. It was useful for quick explanations and for doing a “sanity check” before moving forward.
+### Continuing the Journey
 
-But I quickly learned that nothing replaces building and testing your work yourself. Once, I trusted AI too much and thought I had found a memory leak—only to discover later it wasn’t real. That experience reminded me that in development, correctness and trust matter more than speed. AI can support you, but it can’t validate your work. Real confidence comes from compiling, running, and testing what you’ve built—because that’s where the real learning and reliability come from.
-
-### Takeaways
-
-This mentorship made me realize just how much there is to learn. I feel like I’ve only touched the tip of the iceberg, and the Linux world goes much deeper than I imagined. What keeps me motivated is my interest in embedded systems and open source, and I hope to continue working in this space as much as possible.
-
-I don’t feel anywhere near where I want to be yet, but that’s also the exciting part. I want to keep exploring—by finding bugs, solving issues, and hopefully, over time, adding new functionality. The mentorship gave me the confidence to start, and now I’m determined to continue my journey as an open source contributor.
+This mentorship showed me just how vast the Linux kernel world really is.
+I’ve only scratched the surface, and there’s far more depth than I imagined.
+I really enjoyed working with the kernel during this mentorship and I intend to continue to do so.
 
 A big thank you to my mentors, fellow mentees, and especially Shuah Khan for guiding and supporting me along the way.
+
+### Post notes
+
+#### By the Numbers
+
+To put the mentorship in perspective, I used Altuin to trace how many times I used key commands.
+The counts aren’t perfectly accurate, I definitely missed some, but I found it fun to list:
+- Kernel builds: 844
+- Kernel config changes: 259
+- Buildroot builds: 47
+- Rootfs builds: 147
+- Initramfs builds: 21
+- TFTP file updates: 297
+- UART sessions: 105
+
+#### Using AI Wisely
+
+Using AI tools feels almost inevitable right now, and I used them quite frequently throughout the program.
+They became part of my workflow for unpacking unfamiliar concepts and doing quick "sanity checks" on code.
+They’re great for fast explanations, summaries, and catching obvious mistakes. But they are not a source of truth.
+These models can hallucinate or miss context, do not trust them blindly.
+Before sending anything out, I build, run, and test thoroughly.
+Skipping that step risks reflecting poorly on you and wasting maintainers’ time.
 
