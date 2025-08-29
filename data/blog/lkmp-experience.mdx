@@ -1,0 +1,57 @@
+---
+title: My LKMP experience
+date: '2025-08-29'
+tags: ['linux', 'mentorship', 'kernel', 'development', 'opensource']
+draft: false
+summary: My experience working on the Linux Kernel Mentorship Program (Linux kernel Bug Fixing Summer Unpaid 2025) as a mentee.
+layout: PostSimple
+authors: ['hammerlink']
+---
+
+
+### Introduction
+
+As a Linux enthusiast with a passion for open source and embedded systems, I joined the mentorship program to take my first real step into kernel contributions. 
+I quickly learned it’s not about being taught step by step. 
+You grow by exploring, experimenting, and putting in the effort yourself. 
+But you’re never alone: mentors, ex-mentees, and fellow participants are always there to share knowledge and answer questions.
+That mix of independence and community support makes the mentorship a truly rewarding experience.
+
+### First Contributions
+
+My first patches weren’t groundbreaking features. 
+They were small fixes. But for me, they served as a test: could I follow the patch flow, 
+use the tools and practices I learned in the "LFD103: A Beginner's Guide to Linux Kernel Development", and submit something correctly.
+
+What impressed me most was how accessible the kernel maintainers were. 
+My spelling patch was accepted by Jonathan Corbet, and my sysfs_emit patch was picked up by Greg Kroah-Hartman. 
+These are people I had only known from books and youtube videos, and suddenly they were reviewing my work. 
+It felt like two gatekeepers had let me into the Linux development world. 
+Passing that first test gave me the confidence to move forward and tackle bigger challenges.
+
+### Exploring RISC-V Hardware
+
+With my first patches accepted, I wanted to do something more challenging and aligned with my current interest in embedded systems. 
+I picked up an Orange Pi RV2 and started exploring the Ky X1 SoC, 
+thinking I was dealing with entirely new hardware that would have to be upstreamed from scratch—a task that felt far beyond my abilities at the time.
+
+Luckily, after digging through different source trees, I discovered that the Ky X1 was actually derived from the SpacemiT K1, which was already being actively upstreamed. This was an important realization for me. Instead of starting from zero, I could build on existing work. The device tree for my hardware was accepted, and that gave me the opportunity to start testing and verifying functionality.
+
+From there, I gradually learned how different subsystems fit together, while also improving my own tooling and workflow for embedded SoC development. I worked with U-Boot, TFTP, `stty`, `ftrace`, `strace`, and more—each tool helping me dig deeper into the hardware and the kernel. Through this testing and experimentation, I uncovered issues and missing pieces in the code, which led me to writing patches of my own.
+
+This hands-on work not only gave me confidence in understanding the upstreaming process, but also showed me how rewarding it is to contribute fixes back to the community. Looking ahead, one of my goals is to upstream a driver for the SpacemiT platform.
+
+### Using AI Wisely
+
+AI became part of my workflow during the mentorship, mainly to help me understand new concepts and to catch obvious mistakes in my code. It was useful for quick explanations and for doing a “sanity check” before moving forward.
+
+But I quickly learned that nothing replaces building and testing your work yourself. Once, I trusted AI too much and thought I had found a memory leak—only to discover later it wasn’t real. That experience reminded me that in development, correctness and trust matter more than speed. AI can support you, but it can’t validate your work. Real confidence comes from compiling, running, and testing what you’ve built—because that’s where the real learning and reliability come from.
+
+### Takeaways
+
+This mentorship made me realize just how much there is to learn. I feel like I’ve only touched the tip of the iceberg, and the Linux world goes much deeper than I imagined. What keeps me motivated is my interest in embedded systems and open source, and I hope to continue working in this space as much as possible.
+
+I don’t feel anywhere near where I want to be yet, but that’s also the exciting part. I want to keep exploring—by finding bugs, solving issues, and hopefully, over time, adding new functionality. The mentorship gave me the confidence to start, and now I’m determined to continue my journey as an open source contributor.
+
+A big thank you to my mentors, fellow mentees, and especially Shuah Khan for guiding and supporting me along the way.
+
