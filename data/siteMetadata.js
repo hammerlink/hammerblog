@@ -1,12 +1,12 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'HammerBlog',
+  title: 'HammerLink Tech Blog',
   author: 'Hendrik Hamerlinck',
-  headerTitle: 'HammerBlog',
+  headerTitle: 'HammerLink Tech Blog',
   description: 'hammerlink \'s tech blog',
   language: 'en-us',
   theme: 'dark', // system, dark or light
-  siteUrl: 'https://blog.hammernet.be',
+  siteUrl: 'https://hammerlink.github.io',
   siteRepo: 'https://github.com/hammerlink/hammerblog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
